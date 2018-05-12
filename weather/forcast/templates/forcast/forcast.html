@@ -1,0 +1,105 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ei=edge">
+	<title>SkyCast</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+	<section class="hero is-primary">
+		<div class="hero-body">
+			<div class="container">
+				<div class="column is-offset-4 is-4">
+					<h1 class="title">Hey! What's the weather?</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-offset-4 is-4">
+					<form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ form.name }}
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-info">
+                                    Enter
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-offset-4 is-4">
+					<div class="box">
+						<article class="media">
+							<div class="media-left>">									
+								<span class="skycon swip">   
+							        {% load static %}
+									<img src="{% static 'forcast/status.png' %}" >
+							    </span>
+							</div>
+							<div class="media-content">
+								<div class="content">
+									<p>
+										<span class="subtitle">{{geo_loc.address}}</span>
+										<br>
+										<span class="title">{{city_weather.temperature}}°F</span>
+										<br>Description: {{city_weather.summary}}
+										<br>Today: <b>{{city_weather.daily}}</b>
+										<br>
+										<br>Real Feel: {{city_weather.realfeel}}°F
+										<br>Humidity: {{city_weather.humidity}}
+										<br>Pressure: {{city_weather.pressure}}
+										<br>Wind Speed: {{city_weather.wind}}
+
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-offset-3 is-6">
+					<div class="box">
+						<article class="media">
+							<div class="media-left>">									
+								<span class="Extended Forcast">   
+							        {% load static %}
+									<img src="{% static 'forcast/graph.png' %}" >
+							    </span>
+							</div>
+							<div class="media-content">
+								<div class="content">
+									<p>
+										
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>	
+
+</html>
