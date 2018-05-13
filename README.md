@@ -1,4 +1,5 @@
 # WeatherApp
+Designed to leverage a weather API combined with a geolocation API to allow users to retrieve current and extended weather forecast for any location of search<br /><br />
 Language: Python 3 <br />
 Server: Django Framework <br />
 
